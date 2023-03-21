@@ -48,11 +48,26 @@
                 <span class="ml-2 hgnc text-muted action-show-recent-text">Off</span>
             </div>
         </div>
-        <label for="gene" class="col-sm-8 ml-5 col-form-label">Show only Protein-Coding Genes</label>
+        <label for="gene" class="col-sm-8 ml-5 col-form-label">Show  only Protein-Coding Genes</label>
         <div class="col-sm-3">
             <div class="form-inline p-0 m-0 col-sm-12">
                 <i class="fas fa-toggle-off fa-lg action-show-protein"></i>
                 <span class="ml-2 hgnc text-muted action-show-protein-text">Off</span>
             </div>
         </div>
+        <label for="gene" class="col-sm-8 ml-5 col-form-label">Show only Genes/Regions that have been completed</label>
+        <div class="col-sm-3">
+            <div class="form-inline p-0 m-0 col-sm-12">
+                <i class="fas fa-toggle-off fa-lg action-completed-review"></i>
+                <span class="ml-2 hgnc text-muted action-completed-review-text">Off</span>
+            </div>
+        </div>
+        <label for="gene" class="col-sm-8 ml-5 col-form-label">Pseudogene</label>
+        <div class="col-sm-3">
+            <div class="form-inline p-0 m-0 col-sm-12">
+                <i class="fas fa-toggle-off fa-lg action-show-pesudogene"></i>
+                <span class="ml-2 hgnc text-muted action-show-pesudogene-text">Off</span>
+            </div>
+        </div>
+        
     </div>

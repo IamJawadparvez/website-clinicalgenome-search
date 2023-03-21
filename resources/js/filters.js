@@ -206,9 +206,11 @@ $('.action-show-hiknown').on('click', function() {
 	 *
 	 * */
 	$('.action-show-protein').on('click', function() {
-
+         
 		if ($(this).hasClass('fa-toggle-off'))
 		{
+            
+            //console.log('I have been changed');
 			//$table.bootstrapTable('filterBy', {locus: 'protein-coding gene'});
 			filter_push("protein", "locus", 'protein-coding gene');
 
@@ -223,7 +225,11 @@ $('.action-show-hiknown').on('click', function() {
 		}
 		else
 		{
+
+          
 			//$table.bootstrapTable('filterBy', {type: [0, 1, 3]});
+
+            
 			filter_pop("protein");
 
 			$(this).removeClass('fa-toggle-on').addClass('fa-toggle-off');
@@ -241,7 +247,91 @@ $('.action-show-hiknown').on('click', function() {
 		filter_process($table);
 	});
 
+      /** Hide Pseudogene Starts*/
 
+    $('.action-show-pesudogene').on('click', function() {
+       
+      if ($(this).hasClass('fa-toggle-off'))
+      {
+         //$table.bootstrapTable('filterBy', {locus: 'protein-coding gene'});
+        // filter_push("pseudogene",'locus', 'pseudogene');
+         // filter_push("pesudogene", "locus", 'protein-coding gene');          
+         //filter_push("pseudogenes", ["haplo_assertion", "triplo_assertion"],
+         //['-1 (Pseudogene)', '-1 (Pseudogene)']);
+
+          filter_push("pseudogene", ['type','type'],['0','1']);
+          $(this).removeClass('fa-toggle-off').addClass('fa-toggle-on');
+          $('.action-show-pesudogene-text').html('On');
+
+          $('.action-af-badge').remove();
+
+          var pseudogene = $('<span class="badge action-pc-badge bg-primary mr-1">Pesudogene</span>');
+          $('.filter-container').append(pseudogene);
+
+      }
+      else
+      {
+          //$table.bootstrapTable('filterBy', {type: [0, 1, 3]});
+          filter_pop("pseudogene");
+
+          $(this).removeClass('fa-toggle-on').addClass('fa-toggle-off');
+          $('.action-show-pesudogene-text').html('Off');
+
+          $('.action-pc-badge').remove();
+
+          if ($('.filter-container').html() == '')
+          {
+              var pseudogene = $('<span class="badge action-af-badge">None</span>');
+              $('.filter-container').append(pseudogene);
+          }
+      }
+
+      filter_process($table);
+  });
+
+    /** Hide Pseudogene Ends*/
+
+  /** Show Only Gene/regions Completed review Starts*/
+
+  $('.action-completed-review').on('click', function() {
+       
+    if ($(this).hasClass('fa-toggle-off'))
+    {
+     
+
+        filter_push("completed-review", "workflow", 'Complete');
+
+
+        $(this).removeClass('fa-toggle-off').addClass('fa-toggle-on');
+        $('.action-completed-review-text').html('On');
+
+        $('.action-af-badge').remove();
+
+        var gene_region_completed = $('<span class="badge action-pc-badge bg-primary mr-1">Gene Reigon Completed Review</span>');
+        $('.filter-container').append(gene_region_completed);
+
+    }
+    else
+    {
+        //$table.bootstrapTable('filterBy', {type: [0, 1, 3]});
+        filter_pop("completed-review");
+
+        $(this).removeClass('fa-toggle-on').addClass('fa-toggle-off');
+        $('.action-completed-review-text').html('Off');
+
+        $('.action-pc-badge').remove();
+
+        if ($('.filter-container').html() == '')
+        {
+            var gene_region_completed = $('<span class="badge action-af-badge">None</span>');
+            $('.filter-container').append(gene_region_completed);
+        }
+    }
+
+    filter_process($table);
+});
+
+  /** Show Only Gene/regions Completed review Ends*/
 	/**
 	 *
 	 * Listener for displaying only the recent score changes

@@ -14,6 +14,7 @@
 
   <script src="{{ asset('js/js.cookie.min.js') }}"></script>
   <script src="{{ asset('js/app.js') }}"></script>
+  
 
   <!-- Fonts -->
 
