@@ -329,7 +329,7 @@ $('.action-show-hiknown').on('click', function() {
     }
 
     filter_process($table);
-});
+}); 
 
   /** Show Only Gene/regions Completed review Ends*/
 	/**
